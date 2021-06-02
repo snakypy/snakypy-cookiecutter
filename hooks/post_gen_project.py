@@ -1,14 +1,15 @@
 import os
 
 
-requirementstxt_content = {"requirements.txt": """tomlkit==0.7.2
+requirementstxt_content = {"requirements.txt": """-r requirements-dev.txt
+tomlkit==0.7.2
 snakypy-helpers==0.2.0
 {% if cookiecutter.use_cli|lower == 'y' -%}
 click==8.0.1
 {%- endif -%}
 """}
 
-requirementstxt_dev_content = {"requirements_dev.txt": """twine==3.4.1
+requirementstxt_dev_content = {"requirements-dev.txt": """twine==3.4.1
 wheel==0.34.2
 flake8==3.9.2
 tox==3.23.1
@@ -55,7 +56,7 @@ with open(requirements) as f:
     install_requires = [i.strip().split('#', 1)[0].strip()
                         for i in f.read().strip().split('\\n')]
 
-requirements_dev = join(ROOT, 'requirements_dev.txt')
+requirements_dev = join(ROOT, 'requirements-dev.txt')
 extras_require = {}
 with open(requirements_dev) as f:
     extras_require['dev'] = [i.strip().split('#', 1)[0].strip()
@@ -299,7 +300,7 @@ include CODE_OF_CONDUCT.md
 include CONTRIBUTING.rst
 include LICENSE
 include README.rst
-include requirements_dev.txt
+include requirements-dev.txt
 include requirements.txt
 
 recursive-include tests *
@@ -360,7 +361,7 @@ jobs:
         python -m pip install --upgrade pip{% if cookiecutter.use_poetry|lower == 'y' -%}
         python -m pip install poetry
         poetry install{% else -%}
-        pip install -r requirements.txt requirements_dev.txt{%- endif %}
+        pip install -r requirements.txt{%- endif %}
     - name: Test with Tox
       run: |
         {% if cookiecutter.use_poetry|lower == 'y' -%}poetry run tox{% else -%}tox{%- endif %}
