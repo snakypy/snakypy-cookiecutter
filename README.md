@@ -34,7 +34,7 @@ $ cd my_package
 $ python -m venv .venv
 $ . .venv/bin/activate
 $ pip install --upgrade pip
-$ pip install -r requeriments_dev.txt requeriments.txt
+$ pip install -r requeriments.txt
 ```
 
 or
