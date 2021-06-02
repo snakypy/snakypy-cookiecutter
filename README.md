@@ -70,8 +70,15 @@ $ poetry install
 
 **Tests**
 
+Using Poetry:
 ```
 $ poetry run tox
+```
+
+Not using Poetry:
+
+```
+$ tox
 ```
 
 ## License
