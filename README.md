@@ -18,10 +18,19 @@ With **Snakypy Cookiecutter**, you can create your Python packages with a profes
 
 ## Using:
 
+First time using:
+
 ```
 $ pip install cookiecutter --user
 $ cookiecutter https://github.com/snakypy/snakypy-cookiecutter.git
 ```
+
+Using too many times:
+
+```
+$ cookiecutter snakypy-cookiecutter
+```
+
 After that, go to the folder with the name of the project that you entered at the time of the questions. Example:
 
 ```
