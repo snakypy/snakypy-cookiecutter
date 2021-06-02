@@ -5,7 +5,7 @@ import pytest
 {% else %}
 import unittest
 {% endif %}
-from snakypy.{{ cookiecutter.project_slug }} import __version__, {{ cookiecutter.project_slug }}
+from snakypy.{{ cookiecutter.project_slug }} import __info__, {{ cookiecutter.project_slug }}
 {% if cookiecutter.use_cli == 'y' %}
 from snakypy.{{ cookiecutter.project_slug }} import cli
 {% endif %}
@@ -17,7 +17,7 @@ from click.testing import CliRunner
 
 
 def test_version():
-    assert __version__ == "0.1.0"
+    assert __info__["version"] == "0.1.0"
 
 
 def test_something_000():
@@ -44,7 +44,7 @@ class Test{{ cookiecutter.project_slug|title }}(unittest.TestCase):
     """Tests for `{{ cookiecutter.project_slug }}` package."""
 
     def test_version(self):
-        self.assertEqual(__version__, "0.1.0")
+        self.assertEqual(__info__["version"], "0.1.0")
 
     def setUp(self):
         """Set up test fixtures, if any."""
