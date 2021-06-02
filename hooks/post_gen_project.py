@@ -153,6 +153,7 @@ packages = [
     'Apache Software License 2.0': 'License :: OSI Approved :: Apache Software License',
     'GNU General Public License v3': 'License :: OSI Approved :: GNU General Public License v3 (GPLv3)'
 } %}
+
 classifiers = [
     'Intended Audience :: Developers',
     '{{ license_classifiers[cookiecutter.open_source_license] }}',
@@ -176,7 +177,8 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = '^{{ cookiecutter.python_requires }}'
-snakypy-helpers = '^0.2.0'{% if cookiecutter.use_cli|lower == 'y' -%}
+snakypy-helpers = '^0.2.0'
+{% if cookiecutter.use_cli|lower == 'y' -%}
 click = '^8.0.1'{%- endif %}
 
 [tool.poetry.dev-dependencies]
@@ -184,7 +186,8 @@ click = '^8.0.1'{%- endif %}
 flake8 = '^3.9.2'
 black = '^21.5b2'
 tox = '^3.23.1'
-imake = '^0.1.2'{% if cookiecutter.use_pytest|lower == 'y' -%}
+imake = '^0.1.2'
+{% if cookiecutter.use_pytest|lower == 'y' -%}
 pytest = '^6.2.4'
 pytest-runner = '^5.3.1'{%- endif %}
 
@@ -210,8 +213,8 @@ exclude = '''
     | tmp
   )/
 )
-'''{% if cookiecutter.use_isort|lower == 'y' -%}
-
+'''
+{% if cookiecutter.use_isort|lower == 'y' %}
 [tool.isort]
 profile = "black"
 multi_line_output = 3
@@ -219,7 +222,9 @@ src_paths = ["snakypy", "tests"]
 line_length = 88
 include_trailing_comma = true
 force_grid_wrap = 0
-use_parentheses = true{%- endif %}{% if cookiecutter.use_pytest|lower == 'y' -%}
+use_parentheses = true
+{% endif -%}
+{% if cookiecutter.use_pytest|lower == 'y' %}
 
 [tool.pytest.ini_options]
 minversion = "6.0"
