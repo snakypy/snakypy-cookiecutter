@@ -13,6 +13,7 @@ wheel==0.34.2
 flake8==3.9.2
 tox==3.23.1
 black==21.5b2
+imake==0.2.0
 pre-commit==2.13.0
 {% if cookiecutter.use_pytest|lower == 'y' -%}
 pytest==6.2.4
@@ -185,6 +186,7 @@ pre-commit = '^2.13.0'{%- endif %}
 flake8 = '^3.9.2'
 black = '^21.5b2'
 tox = '^3.23.1'
+imake = '^0.2.0'
 {% if cookiecutter.use_pytest|lower == 'y' -%}
 pytest = '^6.2.4'
 pytest-runner = '^5.3.1'
