@@ -25,7 +25,7 @@ setup_content = {"setup.py": """from setuptools import setup, find_packages
 from os.path import dirname, abspath, join
 from setuptools.command.develop import develop
 from setuptools.command.install import install
-from {{ cookiecutter.project_slug }} import __name__, __version__
+from snakypy.{{ cookiecutter.project_slug }} import __name__, __version__
 
 
 ROOT = dirname(abspath(__file__))
