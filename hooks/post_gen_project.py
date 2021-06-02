@@ -26,7 +26,7 @@ setup_content = {"setup.py": """from setuptools import setup, find_packages
 from os.path import dirname, abspath, join
 from setuptools.command.develop import develop
 from setuptools.command.install import install
-from snakypy.{{ cookiecutter.project_slug }} import __name__, __version__
+from snakypy.{{ cookiecutter.project_slug }} import __name__, __info__
 
 
 ROOT = dirname(abspath(__file__))
@@ -79,7 +79,7 @@ command = f'{__name__}={__name__}.cli:main'
 
 setup(
     name='{{ cookiecutter.project_slug | replace("_", "-") }}',
-    version=__version__,
+    version=__info__['version'],
     description='{{ cookiecutter.project_short_description }}',
     author='{{ cookiecutter.your_full_name }}',
     author_email='{{ cookiecutter.email }}',
