@@ -1,7 +1,6 @@
 [build]
 description = "Compile the project for publication and installation."
-header = "Build project {{ cookiecutter.project_name }}..."
-{% if cookiecutter.use_poetry|lower == 'y' or cookiecutter.use_poetry == 'Y/n' -%}
+header = "Build project {{ cookiecutter.project_name }}..."{% if cookiecutter.use_poetry|lower == 'y' or cookiecutter.use_poetry == 'Y/n' -%}
 commands = ["python -m snakypy.{{ cookiecutter.project_slug }}", "poetry build"]{%- else %}
 commands = ["python -m snakypy.{{ cookiecutter.project_slug }}", "python setup.py sdist bdist_wheel"]{%- endif %}
 footer = "Compilation command terminated!"

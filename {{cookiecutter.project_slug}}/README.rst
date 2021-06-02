@@ -1,13 +1,10 @@
-{%- if cookiecutter.add_badges|lower == 'y' -%}
-
-{%- if cookiecutter.use_github_actions|lower == 'y' -%}
+{%- if cookiecutter.add_badges|lower == 'y' -%}{%- if cookiecutter.use_github_actions|lower == 'y' -%}
 .. image:: https://github.com/{{ cookiecutter.github_profile }}/{{ cookiecutter.project_slug | replace("_", "-") }}/workflows/Tests/badge.svg
     :target: https://github.com/{{ cookiecutter.github_profile }}/{{ cookiecutter.project_slug | replace("_", "-") }}{% endif -%}
 
 .. image:: https://img.shields.io/pypi/v/{{ cookiecutter.project_slug | replace("_", "-") }}.svg
-    :target: https://pypi.python.org/pypi/{{ cookiecutter.project_slug | replace("_", "-") }}
+    :target: https://pypi.python.org/pypi/{{ cookiecutter.project_slug | replace("_", "-") }}{%- if cookiecutter.use_travis|lower == 'y' -%}
 
-{%- if cookiecutter.use_travis|lower == 'y' -%}
 .. image:: https://travis-ci.com/{{ cookiecutter.github_profile }}/{{ cookiecutter.project_slug | replace("_", "-") }}.svg?branch=master
     :target: https://travis-ci.com/{{ cookiecutter.github_profile }}/{{ cookiecutter.project_slug | replace("_", "-") }}{% endif -%}
 
@@ -24,6 +21,13 @@
     :alt: GitHub license
     :target: https://github.com/{{ cookiecutter.github_profile }}/{{ cookiecutter.project_slug | replace("_", "-") }}/blob/master/LICENSE
 {% endif -%}
+
+
+{{ cookiecutter.project_name }}
+--------------------------------------------
+
+{{ cookiecutter.project_short_description }}
+
 
 Requirements
 ------------

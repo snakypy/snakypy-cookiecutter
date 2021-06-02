@@ -140,7 +140,7 @@ license = '{{ cookiecutter.open_source_license }}'
 keywords=['{{ cookiecutter.keywords }}']
 homepage = '{{ cookiecutter.project_homepage }}'
 repository = '{{ cookiecutter.project_repository }}'
-include = ['LICENSE', 'CHANGELOG.rst']
+include = ['LICENSE']
 
 packages = [
     { include = 'snakypy' }
@@ -176,22 +176,17 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = '^{{ cookiecutter.python_requires }}'
-snakypy-helpers = '^0.2.0'
-{% if cookiecutter.use_cli|lower == 'y' -%}
-click = '^8.0.1'
-{%- endif %}
+snakypy-helpers = '^0.2.0'{% if cookiecutter.use_cli|lower == 'y' -%}
+click = '^8.0.1'{%- endif %}
 
 [tool.poetry.dev-dependencies]
-{% if cookiecutter.use_pre_commit|lower == 'y' -%}
-pre-commit = '^2.13.0'{%- endif %}
+{% if cookiecutter.use_pre_commit|lower == 'y' -%}pre-commit = '^2.13.0'{%- endif %}
 flake8 = '^3.9.2'
 black = '^21.5b2'
 tox = '^3.23.1'
-imake = '^0.1.2'
-{% if cookiecutter.use_pytest|lower == 'y' -%}
+imake = '^0.1.2'{% if cookiecutter.use_pytest|lower == 'y' -%}
 pytest = '^6.2.4'
-pytest-runner = '^5.3.1'
-{%- endif %}
+pytest-runner = '^5.3.1'{%- endif %}
 
 [tool.black]
 line-length = {{ cookiecutter.black_line_length }}
@@ -215,9 +210,8 @@ exclude = '''
     | tmp
   )/
 )
-'''
+'''{% if cookiecutter.use_isort|lower == 'y' -%}
 
-{% if cookiecutter.use_isort|lower == 'y' -%}
 [tool.isort]
 profile = "black"
 multi_line_output = 3
@@ -225,9 +219,8 @@ src_paths = ["snakypy", "tests"]
 line_length = 88
 include_trailing_comma = true
 force_grid_wrap = 0
-use_parentheses = true{%- endif %}
+use_parentheses = true{%- endif %}{% if cookiecutter.use_pytest|lower == 'y' -%}
 
-{% if cookiecutter.use_pytest|lower == 'y' -%}
 [tool.pytest.ini_options]
 minversion = "6.0"
 cache_dir = ".pytest_cache"
@@ -239,7 +232,7 @@ requires = ['poetry-core>=1.0.0']
 build-backend = 'poetry.core.masonry.api'
 """
 
-dockerfile_content = """FROM python:3
+dockerfile_content = """FROM python:{{ "".join(cookiecutter.python_requires.split(".")[0]) }}
 USER root
 WORKDIR /snakypy/{{ cookiecutter.project_slug }}
 ENV LOCAL_BIN=/root/.local/bin
@@ -358,7 +351,8 @@ jobs:
       uses: actions/setup-python@v1
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip{% if cookiecutter.use_poetry|lower == 'y' -%}
+        python -m pip install --upgrade pip
+        {% if cookiecutter.use_poetry|lower == 'y' or cookiecutter.use_poetry == 'Y/n' -%}
         python -m pip install poetry
         poetry install{% else -%}
         pip install -r requirements.txt{%- endif %}
