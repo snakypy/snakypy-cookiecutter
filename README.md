@@ -1,5 +1,8 @@
 # Snakypy Cookiecutter
 
+[![Tests](https://github.com/snakypy/snakypy-cookiecutter/actions/workflows/tests.yml/badge.svg)](https://github.com/snakypy/snakypy-cookiecutter/actions/workflows/tests.yml)
+[![GitHub license](https://img.shields.io/github/license/snakypy/snakypy-cookiecutter)](https://github.com/snakypy/snakypy-cookiecutter/blob/main/LICENSE)
+
 With **Snakypy Cookiecutter**, you can create your Python packages with a professional structure and with a lot of resources available.
 
 ## Requirements
