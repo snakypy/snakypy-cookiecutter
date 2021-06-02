@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "Snakypy Cookiecutter"
+version = "0.1.0"
+description = "Cookiecutter package for Snakypy projects"
+readme = "README.md"
+authors = ["Snakypy <contact.snakypy@gmail.com>"]
+license = "MIT"
+keywords=["cokkiecutter", "snakypy", "package"]
+homepage = "https://github.com/snakypy/snakypy-cookiecutter"
+repository = "https://github.com/snakypy/snakypy-cookiecutter"
+include = ["LICENSE"]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/snakypy/snakypy-cookiecutter/issues"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+poetry = "^1.1.6"
+cookiecutter = "^1.7.3"
+flake8 = "^3.9.2"
+black = "^21.5b2"
+tox = "^3.23.1"
+pytest = "^6.2.4"
+pytest-cookies = "^0.6.1"
+ipython = "^7.24.0"
+pytest-runner = "^5.3.1"
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.pytest_cache
+    | \.tox
+    | \venv
+    | build
+    | venv
+    | dist
+    | docs
+    | tmp
+  )/
+)
+'''
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+# cache_dir = "/tmp/.pytest_cache"
+# addopts = "-ra -q"
+testpaths = ["tests"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

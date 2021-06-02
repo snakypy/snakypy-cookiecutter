@@ -1,0 +1,42 @@
+{
+    "project_name": "Snakypy Cookiecutter",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+    "project_version": "0.1.0",
+    "project_short_description": "This is my description package.",
+    "project_homepage": "http://example.com",
+    "project_repository": "http://github.com/snakypy/{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "keywords": "{{ cookiecutter.project_slug }}",
+    "black_line_length": "88",
+    "flake8_line_length": "88",
+    "use_travis": "y/N",
+    "use_github_actions": "y/N",
+    "use_docker": "y/N",
+    "use_poetry": "Y/n",
+    "use_mypy": "Y/n",
+    "use_isort": "Y/n",
+    "use_pre_commit": "y/N",
+    "use_pytest": "y/N",
+    "use_cli": "y/N",
+    "add_badges": "y/N",
+    "use_sponsor": "y/N",
+    "python_requires": "3.9",
+    "system": [
+      "Posix (Linux | Mac OS X | BSD | Solaris)",
+      "DOS (Windows)",
+      "Both"
+    ],
+    "open_source_license": [
+        "MIT license",
+        "BSD license",
+        "ISC license",
+        "Apache Software License 2.0",
+        "GNU General Public License v3",
+        "Not open source"
+      ],
+    "your_full_name": "Snakypy Org",
+    "email": "contact.snakypy@gmail.com",
+    "github_profile": "snakypy",
+    "pypi_username": "Username Pypi",
+    "test_pypi_username": "{{ cookiecutter.pypi_username }}",
+    "author_website": "https://domain.com"
+}
