@@ -129,8 +129,7 @@ ignore_missing_imports = True{%- endif -%}
 """
 
 
-pyproject_poetry_content = """
-[tool.poetry]
+pyproject_poetry_content = """[tool.poetry]
 name = '{{ cookiecutter.project_slug }}'
 version = '{{ cookiecutter.project_version }}'
 description = '{{ cookiecutter.project_short_description }}'
